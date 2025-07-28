@@ -8,7 +8,7 @@
 
     <div class="page-heading">
       <div class="page-left"> Manage parade routes </div>
-      <div class="page-right"> <button class="btn-edit" onClick="addRoute();"> Add point</button> </div>
+      <div class="page-right"> <button class="adpoint" onClick="addRoute();"> Add point</button> </div>
     </div>
 
     <form name="toForm" id="toForm">
@@ -68,15 +68,6 @@
   </form>
 </dialog>
 
-<dialog id="dragDialog">
-  <form method="dialog">
-    <p id="result"></p>
-    <div>
-      <button id="drag" type="reset"></button>
-
-    </div>
-  </form>
-</dialog>
 
 <!-- Feed back dialog eof after update single route -->
 
@@ -95,14 +86,14 @@
 
     <div>
       <button id="doneRouteAdd" type="reset">Cancel</button>
-      <button type="submit" id="addRouteSubmit">Add route</button>
+      <button type="submit" id="addRouteSubmit">Add point</button>
     </div>
 
   </form>
 </dialog>
 <!-- eof add route form -->
 
-<script src="<?php echo base_url() ?>js/routemanagement.js"></script>
-<script src="<?php echo base_url() ?>js/dragndrop.js"></script>
+<script src="<?php echo base_url() ?>js/routemanagement.js?v=1.0"></script>
+<script src="<?php echo base_url() ?>js/dragndrop.js?v=1.0"></script>
 
-<script src="<?php echo base_url() ?>js/addroute.js"></script>
+<script src="<?php echo base_url() ?>js/addroute.js?v=1.0"></script>

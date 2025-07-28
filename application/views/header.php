@@ -5,10 +5,10 @@
   <title>Parade Tracker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/style.css" />
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/routemanagement.css" />
-  <script src="<?php echo base_url() ?>js/confirmation.js"></script>
- 
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/style.css?v=1.0" />
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/routemanagement.css?v=1.0" />
+  <script src="<?php echo base_url() ?>js/confirmation.js?v=1.0"></script>
+
 
 </head>
 
@@ -41,27 +41,27 @@
         <li><?php print anchor('users/logout', 'Log out'); ?></li>
       </ul>
     </nav>
-  <?php } else if($this->session->userdata('type') == 'user') { ?>
-    <nav>
-      <ul>
-        <li><?php print anchor('home', 'Home'); ?></li>
-        <li><a href="<?php echo base_url() ?>parade/"> Parades</a></li>
-        <li><a href="<?php echo base_url() ?>parade/createParade"> Create parade</a></li>
-        <li><?php print anchor('routemanagement/', 'Copy route'); ?></li>
-        <li><?php print anchor('routemanagement/manage', 'Manage route'); ?></li>
+  <?php } else if ($this->session->userdata('type') == 'user') { ?>
+      <nav>
+        <ul>
+          <li><?php print anchor('home', 'Home'); ?></li>
+          <li><a href="<?php echo base_url() ?>parade/"> Parades</a></li>
+          <li><a href="<?php echo base_url() ?>parade/createParade"> Create parade</a></li>
+          <li><?php print anchor('routemanagement/', 'Copy route'); ?></li>
+          <li><?php print anchor('routemanagement/manage', 'Manage route'); ?></li>
 
         <?php if ($this->session->userdata('type') != '') { ?>
-          <li><?php print anchor('users/logout', 'Log out'); ?></li>
+            <li><?php print anchor('users/logout', 'Log out'); ?></li>
         <?php } ?>
-      </ul>
-    </nav>
-  <?php }else{ ?>
-    <nav>
-      <ul>
-        <li><?php print anchor('home', 'Home'); ?></li>
-        
-      </ul>
-    </nav>
-    <?php } ?>
+        </ul>
+      </nav>
+  <?php } else { ?>
+      <nav>
+        <ul>
+          <li><?php print anchor('home', 'Home'); ?></li>
+
+        </ul>
+      </nav>
+  <?php } ?>
 
   <article>

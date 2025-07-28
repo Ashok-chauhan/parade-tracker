@@ -1,7 +1,5 @@
 const list = document.getElementById("to-routes");
 // let draggedItem = null;
-const dismisDialog = document.getElementById("drag");
-const dragDialog = document.getElementById("dragDialog");
 
 function initializeDragAndDrop() {
 	let draggedItem = null;
@@ -25,9 +23,8 @@ function initializeDragAndDrop() {
 			})
 				.then((res) => res.json())
 				.then((data) => {
-					dragDialog.showModal();
-					dragCheck(dragDialog, data);
-				}) //dragCheck(dragDialog, data)) //console.log(data))
+					//console.log(data)
+				})
 				.catch((err) => console.error(err));
 			hideLoading();
 		});
@@ -47,27 +44,5 @@ function initializeDragAndDrop() {
 				}
 			}
 		});
-	});
-}
-
-function dragCheck(dragDialog, data = {}) {
-	if (dragDialog.open) {
-		console.log("Drag Dialog open");
-		if (data.error) {
-			document.getElementById(
-				"drag"
-			).innerHTML = `<span style="color:yellow;">${data.result}</span>`;
-		} else {
-			document.getElementById("drag").textContent = data.result;
-		}
-	} else {
-		console.log("Drag Dialog closed");
-	}
-}
-
-if (dismisDialog) {
-	dismisDialog.addEventListener("click", () => {
-		dragDialog.close();
-		dragCheck(dragDialog);
 	});
 }

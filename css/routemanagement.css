@@ -142,14 +142,32 @@ li {
   font-size: 18px;
 }
 
-.page-heading {
-  width: 100%; overflow: hidden;
+.adpoint {
+  background-color: #045cbe;/*#6ECBFB;*/
+  color: white;
+  /* padding: 5px 5px; */
+  /* padding: inherit; */
+  /* margin: 8px 0; */
+  float: inline-end;
+  /* margin-top: -35px; */
+  margin-bottom: 10px;
   
+  border: none;
+  cursor: pointer;
+  width: 125px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.page-heading {
+  width: 500px; overflow: hidden;
+   
 }
 
 .page-righ{
   /* margin-left: 260px; */
   float: right;
+  width: 250px;
 }
   
 .page-left{
