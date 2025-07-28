@@ -1,0 +1,110 @@
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    /* width: 80%;*/
+    width: 100%;
+  }
+
+  td,
+  th {
+    /*border: 1px solid #dddddd;*/
+    text-align: left;
+    padding: 5px;
+  }
+
+  /*Current location */
+  .location td {
+    list-style-type: none;
+    padding: 0;
+
+  }
+
+  .location a {
+    display: block;
+    /*color: #839192;*/
+
+    padding: 4px 8px;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Change the link color on hover */
+  .location td a:hover {
+    background-color: #6ECBFB;
+    color: white;
+  }
+
+  /* popup modal css bof */
+  /*Dialog Styles*/
+  dialog {
+    padding: 1rem 3rem;
+    background: white;
+    max-width: 350px;
+    padding-top: 2rem;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+    animation: fadeIn 1s ease both;
+
+    &::backdrop {
+      animation: fadeIn 1s ease both;
+      background: rgb(255 255 255 / 40%);
+      z-index: 2;
+      backdrop-filter: blur(20px);
+    }
+
+
+    h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      padding-bottom: 1rem;
+      color: #e1ad01;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.3rem;
+      padding: 0.5rem 0;
+
+      a {
+        &:visited {
+          color: rgb(var(--vs-primary));
+        }
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* popup dialog eof */
+
+  .btn {
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+
+  }
+
+  .warning {
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+
+    margin-bottom: -15px;
+  }

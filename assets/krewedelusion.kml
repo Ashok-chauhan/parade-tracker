@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>krewedelusion</name>
+    <description/>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-1267FF-5000-nodesc-normal">
+      <LineStyle>
+        <color>ffff6712</color>
+        <width>5</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-1267FF-5000-nodesc-highlight">
+      <LineStyle>
+        <color>ffff6712</color>
+        <width>7.5</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-1267FF-5000-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-1267FF-5000-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-1267FF-5000-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Untitled layer</name>
+    </Folder>
+    <Folder>
+      <name>Directions from 2513-2599 Royal St, New Orleans, LA 70117, USA to 1039 Toulouse St, New Orleans, LA 70112, USA</name>
+      <Placemark>
+        <name>Directions from 2513-2599 Royal St, New Orleans, LA 70117, USA to 1039 Toulouse St, New Orleans, LA 70112, USA</name>
+        <styleUrl>#line-1267FF-5000-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -90.0514,29.96488,0
+            -90.05145,29.96489,0
+            -90.05149,29.9649,0
+            -90.05156,29.96489,0
+            -90.05182,29.96488,0
+            -90.05295,29.96481,0
+            -90.05408,29.96474,0
+            -90.05521,29.96466,0
+            -90.05638,29.9646,0
+            -90.05668,29.96457,0
+            -90.05783,29.96451,0
+            -90.05782,29.96448,0
+            -90.05775,29.96352,0
+            -90.05767,29.96255,0
+            -90.05768,29.96243,0
+            -90.05773,29.96238,0
+            -90.05797,29.96211,0
+            -90.05807,29.962,0
+            -90.05848,29.96156,0
+            -90.05857,29.96145,0
+            -90.05925,29.96067,0
+            -90.05998,29.9599,0
+            -90.06068,29.95914,0
+            -90.06086,29.95894,0
+            -90.06099,29.95877,0
+            -90.06111,29.95859,0
+            -90.06136,29.95833,0
+            -90.0624,29.95904,0
+            -90.06169,29.95984,0
+            -90.06099,29.96061,0
+            -90.06029,29.96139,0
+            -90.0596,29.96215,0
+            -90.06046,29.96276,0
+            -90.06118,29.962,0
+            -90.06187,29.96123,0
+            -90.06257,29.96045,0
+            -90.06329,29.95965,0
+            -90.06398,29.95887,0
+            -90.06427,29.95854,0
+            -90.06438,29.95842,0
+            -90.06449,29.95829,0
+            -90.06477,29.958,0
+            -90.06548,29.95722,0
+            -90.06593,29.95754,0
+            -90.06637,29.95784,0
+            -90.06725,29.95842,0
+            -90.06818,29.95904,0
+            -90.06909,29.95966,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>2513-2599 Royal St, New Orleans, LA 70117, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0514021,29.9648845,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>634 Frenchmen St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0578245,29.9644757,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1400-2098 Decatur St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0577268,29.9623767,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>901 Decatur St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0613565,29.958334,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>602 Dumaine St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.062396,29.9590379,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1239 Chartres St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0595998,29.9621525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>699 Barracks St, New Orleans, LA 70116, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0604615,29.9627644,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>540-598 Royal St, New Orleans, LA 70130, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0654768,29.9572168,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1039 Toulouse St, New Orleans, LA 70112, USA</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.069093,29.9596623,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Krewe of Boo</name>
+    <description/>
+    <Style id="icon-22-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/22-blue-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-22-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/22-blue-dot.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-22-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-22-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-22-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-7C3592-4681-nodesc-normal">
+      <LineStyle>
+        <color>ff92357c</color>
+        <width>4.681</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-7C3592-4681-nodesc-highlight">
+      <LineStyle>
+        <color>ff92357c</color>
+        <width>7.0215</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-7C3592-4681-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-7C3592-4681-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-7C3592-4681-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Untitled layer</name>
+      <Placemark>
+        <name>Start Position</name>
+        <styleUrl>#icon-22-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.056455,29.963607,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Krewe of Boo Parade Route</name>
+        <styleUrl>#line-7C3592-4681-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -90.05645,29.9635946,0
+            -90.05635,29.9617846,0
+            -90.05669,29.9614046,0
+            -90.0611,29.9586146,0
+            -90.06435,29.9549846,0
+            -90.0659683,29.951236,0
+            -90.0716756,29.9550796,0
+            -90.0718712,29.9549407,0
+            -90.0661722,29.9510386,0
+            -90.0669317,29.9488605,0
+            -90.06726,29.9475846,0
+            -90.0675704,29.9433647,0
+            -90.0674142,29.9422033,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>End Destination</name>
+        <styleUrl>#icon-22-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -90.0674163,29.9422035,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

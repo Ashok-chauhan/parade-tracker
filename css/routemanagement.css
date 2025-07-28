@@ -1,0 +1,162 @@
+.float-container {
+    /* border: 3px solid #fff; */
+    padding: 20px;
+}
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    /* border: 2px solid red; */
+}  
+
+li {
+    color: black;
+    list-style: none;
+    padding: 5px;
+}
+ li:nth-child(odd) {
+    color: #777;
+    
+    
+}
+#to-routes > li:nth-child(even) {
+    color: rgba(12, 12, 12, 0.807);
+    background-color: gainsboro;
+   
+}
+
+
+
+
+#from-routes > li:nth-child(even) {
+    color: rgba(12, 12, 12, 0.807);
+    background-color: gainsboro;
+   
+}
+/* loader bof */
+#loading{
+  /*-----*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(38, 35, 35, 0.663);
+
+  /*-----*/
+    width: 5rem;
+    height: 5rem;
+    border: 5px solid #e5dada;
+    border-top: 6px solid #84fc0cf7;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#loading.display{
+    visibility: visible;
+}
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* loader eof */
+
+.center-routes {
+    margin: auto;
+    width: 80%;
+    /* border: 3px solid #73AD21; */
+    padding: 10px;
+  }
+
+  .center-list {
+    margin: auto;
+    width: 40%;
+    /* border: 3px solid #73AD21; */
+    padding: 10px;
+  }
+
+  .custom-select {
+    &, &::picker(select) {
+      appearance: base-select;    
+    }
+    width: 500px;
+  }
+  .route-edit{
+   width: 100px;
+  }
+  .route-delete{
+    width: 100px;
+    /* float: right; */
+  }
+  .route-name{
+    width: 300px;
+  }
+  .tbl{
+    width: 100%;
+    padding: 10px;
+    
+  }
+  .route-tr{
+    border-bottom: 1px solid #b2a4a4;
+    color: #777;
+    /* line-height: 30px; */
+   /* cursor: move; */
+    
+  }
+
+  .btn-delete {
+    background-color: #ce181f;/*#6ECBFB;*/
+    color: white;
+    /* padding: 5px 5px; */
+    padding: inherit;
+    /* margin: 8px 0; */
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.btn-edit {
+  background-color: #045cbe;/*#6ECBFB;*/
+  color: white;
+  /* padding: 5px 5px; */
+  padding: inherit;
+  /* margin: 8px 0; */
+  
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.page-heading {
+  width: 100%; overflow: hidden;
+  
+}
+
+.page-righ{
+  /* margin-left: 260px; */
+  float: right;
+}
+  
+.page-left{
+  width: 250px; float: left;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+ 
+

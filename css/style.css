@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    //font-family: courier New;
+}
+
+/* Style the header */
+header {
+    /*background-color: #ccc;*/
+    
+    padding: 0px;
+    text-align: center;
+    font-size: 19px;
+    color: #839192;
+    font-family: courier New;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: right;
+    /*width: 10%;*/
+    width: 15%;
+    /*height: 300px; /* only for demonstration, should be removed */
+    /*background: #ccc;*/
+   font-size: 18px;
+    padding: 20px;
+    
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+li a {
+    display: block;
+    color: #839192;
+    padding: 4px 8px;
+    text-decoration: none;
+    border-bottom: dotted 1px;
+}
+/* Change the link color on hover */
+li a:hover {
+    background-color: #6ECBFB;
+    color: white;
+}
+
+/*Current location */
+.location ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+.location a {
+    display: block;
+    /*color: #839192;*/
+    
+    padding: 4px 8px;
+    text-decoration: none;
+    border-bottom: dashed 1px;
+}
+/* Change the link color on hover */
+.location li a:hover {
+    background-color: #6ECBFB;
+    color: white;
+}
+.selected{
+ background-color: #ffcc00;
+    color: white;
+    
+ 
+}
+
+
+article {
+    float: right;
+    padding: 20px;
+    /*width: 90%;*/
+    width: 85%;
+    /*background-color: #f9f9f9;*/
+    /*height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 0px;
+    text-align: center;
+    color: white;
+}
+
+
+
+/*body {font-family: Arial, Helvetica, sans-serif;}*/
+/* form {border: 3px solid #f1f1f1;} */
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 4px 6px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #045cbe;/*#6ECBFB;*/
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* table style */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    
+}
+
+td, th {
+    /*border: 1px solid #dddddd;*/
+    text-align: left;
+    padding: 2px;
+}
+
+tr:nth-child(even) {
+    background-color: #F4F6F6;
+}
+
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
