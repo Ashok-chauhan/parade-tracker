@@ -16,13 +16,15 @@ class Parade_model extends CI_Model
 
 
         $data = array(
-            'name'       => $this->input->post('name'),
-            'area'       => $this->input->post('area'),
-            'date'       => $unixDate,
+            'name' => $this->input->post('name'),
+            'area' => $this->input->post('area'),
+            'date' => $unixDate,
             'start_time' => $unixTime,
-            'route_id'   => $this->input->post('route_id'),
-            'floats'     => $this->input->post('floats'),
-            'banner'     => $this->input->post('banner'),
+            'route_id' => $this->input->post('route_id'),
+            'lat' => $this->input->post('lat'),
+            'lon' => $this->input->post('lon'),
+            'floats' => $this->input->post('floats'),
+            'banner' => $this->input->post('banner'),
             'sponsor_ad' => $this->input->post('sponsor_ad')
         );
         //if(date('h', $unixTime) >= 12){
@@ -76,24 +78,25 @@ class Parade_model extends CI_Model
 
         if ($this->input->post('parade')) {
             $data = array(
-                'parade_id'         => $this->input->post('parade'),
-                'weather_url'       => $this->input->post('weather_url'),
-                'zipcode'           => $this->input->post('zipcode'),
-                'dfp_ad_unit'       => $this->input->post('dfp_ad_unit'),
-                'google_analytics'  => $this->input->post('google_analytics'),
-                'about_text'        => $this->input->post('about_text'),
-                'email'             => $this->input->post('email'),
+                'parade_id' => $this->input->post('parade'),
+                'weather_url' => $this->input->post('weather_url'),
+                'zipcode' => $this->input->post('zipcode'),
+                'dfp_ad_unit' => $this->input->post('dfp_ad_unit'),
+                'google_analytics' => $this->input->post('google_analytics'),
+                'about_text' => $this->input->post('about_text'),
+                'email' => $this->input->post('email'),
                 'location_interval' => $this->input->post('location_interval'),
-                'location_url'      => $this->input->post('location_url'),
-                'home_screen'       => $this->input->post('home_screen'),
-                'schedule_screen'   => $this->input->post('schedule_screen'),
-                'interstitial_ad'   => $this->input->post('interstitial_ad'),
-                'sponsor_ad'        => $this->input->post('sponsor_ad'),
-                'cox_ad'            => $this->input->post('cox_ad')
+                'location_url' => $this->input->post('location_url'),
+                'home_screen' => $this->input->post('home_screen'),
+                'schedule_screen' => $this->input->post('schedule_screen'),
+                'interstitial_ad' => $this->input->post('interstitial_ad'),
+                'sponsor_ad' => $this->input->post('sponsor_ad'),
+                'cox_ad' => $this->input->post('cox_ad')
             );
 
             $this->db->insert('config', $data);
-            if ($this->db->affected_rows()) return $this->input->post('parade');
+            if ($this->db->affected_rows())
+                return $this->input->post('parade');
         } elseif ($this->input->post('parade_id')) {
             $this->updateConfig();
         }
@@ -105,20 +108,20 @@ class Parade_model extends CI_Model
         if ($this->input->post('parade_id')) {
 
             $data = array(
-                'parade_id'         => $this->input->post('parade_id'),
-                'weather_url'       => $this->input->post('weather_url'),
-                'zipcode'           => $this->input->post('zipcode'),
-                'dfp_ad_unit'       => $this->input->post('dfp_ad_unit'),
-                'google_analytics'  => $this->input->post('google_analytics'),
-                'about_text'        => $this->input->post('about_text'),
-                'email'             => $this->input->post('email'),
+                'parade_id' => $this->input->post('parade_id'),
+                'weather_url' => $this->input->post('weather_url'),
+                'zipcode' => $this->input->post('zipcode'),
+                'dfp_ad_unit' => $this->input->post('dfp_ad_unit'),
+                'google_analytics' => $this->input->post('google_analytics'),
+                'about_text' => $this->input->post('about_text'),
+                'email' => $this->input->post('email'),
                 'location_interval' => $this->input->post('location_interval'),
-                'location_url'      => $this->input->post('location_url'),
-                'home_screen'       => $this->input->post('home_screen'),
-                'schedule_screen'   => $this->input->post('schedule_screen'),
-                'interstitial_ad'   => $this->input->post('interstitial_ad'),
-                'sponsor_ad'        => $this->input->post('sponsor_ad'),
-                'cox_ad'            => $this->input->post('cox_ad')
+                'location_url' => $this->input->post('location_url'),
+                'home_screen' => $this->input->post('home_screen'),
+                'schedule_screen' => $this->input->post('schedule_screen'),
+                'interstitial_ad' => $this->input->post('interstitial_ad'),
+                'sponsor_ad' => $this->input->post('sponsor_ad'),
+                'cox_ad' => $this->input->post('cox_ad')
 
             );
 
@@ -137,14 +140,16 @@ class Parade_model extends CI_Model
 
     public function getConfig($parade_id = '')
     {
-        if ($parade_id)            $this->db->where('parade_id', $parade_id);
+        if ($parade_id)
+            $this->db->where('parade_id', $parade_id);
         $q = $this->db->get('config');
         return $q->row_array();
     }
 
     public function api($id)
     {
-        if ($id) $this->db->where('id', $id);
+        if ($id)
+            $this->db->where('id', $id);
         $q = $this->db->get('parade');
 
         return $q->result_array();
@@ -152,7 +157,8 @@ class Parade_model extends CI_Model
 
     public function kmlData($route_id)
     {
-        if ($route_id) $this->db->where('route_id', $route_id);
+        if ($route_id)
+            $this->db->where('route_id', $route_id);
         $this->db->order_by('route_order', 'asc'); //added on 16/10/2018
         $q = $this->db->get('Routes');
 
@@ -167,7 +173,8 @@ class Parade_model extends CI_Model
         return $query->result_array();
     }
 
-    public function getMaxRouteId(){
+    public function getMaxRouteId()
+    {
         $this->db->select_max('route_id');
         $query = $this->db->get('parade');
         $id = $query->row();

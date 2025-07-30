@@ -1,20 +1,25 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Api_model extends CI_Model{
-	function __construct(){
-		//call the model constructor
-		parent::__construct();
-	}
+defined('BASEPATH') or exit('No direct script access allowed');
+class Api_model extends CI_Model
+{
+    function __construct()
+    {
+        //call the model constructor
+        parent::__construct();
+    }
 
 
-public function getConfig($parade_id=''){
-        if($parade_id)            $this->db->where('parade_id', $parade_id);
+    public function getConfig($parade_id = '')
+    {
+        if ($parade_id)
+            $this->db->where('parade_id', $parade_id);
         $q = $this->db->get('config');
         return $q->row_array();
     }
 
-        
-    function api(){
+
+    function api()
+    {
         $TODAY = strtotime(date('m/d/Y', strtotime('now')));
         /*
         $this->db->where('date', strtotime(date('m/d/Y', strtotime('now'))));
@@ -22,12 +27,13 @@ public function getConfig($parade_id=''){
         $query = $this->db->get('parade');
          * 
          */
-        $query = $this->db->query('SELECT * FROM parade WHERE date >='.$TODAY.' ORDER BY date ASC, start_time DESC');
-        
-       return $query->result_array();
+        $query = $this->db->query('SELECT * FROM parade WHERE date >=' . $TODAY . ' ORDER BY date ASC, start_time DESC');
+
+        return $query->result_array();
     }
-    
-    public function currentLocation($route_id){
+
+    public function currentLocation($route_id)
+    {
         $this->db->where('route_id', $route_id);
         $this->db->where('status', 1);
         //$Q = $this->db->get('Routes');
@@ -35,60 +41,63 @@ public function getConfig($parade_id=''){
         return $Q->row_array();
     }
 
-    public function tailLocation($route_id){
+    public function tailLocation($route_id)
+    {
         $this->db->where('route_id', $route_id);
         //$this->db->where('status', 1);
         $Q = $this->db->get('tail_location');
         return $Q->row_array();
     }
-    
-    function  getParade($id){
-        if($id){ 
-        $this->db->where('id', $id);
-        //$this->db->where('status', 1);
-        $Q = $this->db->get('parade');
-        return $Q->result_array();
-    }
+
+    function getParade($id)
+    {
+        if ($id) {
+            $this->db->where('id', $id);
+            //$this->db->where('status', 1);
+            $Q = $this->db->get('parade');
+            return $Q->result_array();
+        }
     }
 
-    private function getRouteByCoordinate($latitude, $longitude, $route_id){
+    private function getRouteByCoordinate($latitude, $longitude, $route_id)
+    {
         $this->db->where('route_id', $route_id);
         $this->db->where('latitude', $latitude);
-        $this->db->where('longitude',$longitude);
+        $this->db->where('longitude', $longitude);
         $q = $this->db->get('Routes');
         return $q->row_array();
 
     }
 
 
-    public function updateLocationTable($latitude, $longitude, $route_id, $intersection='')
+    public function updateLocationTable($latitude, $longitude, $route_id, $intersection = '')
     {
-       
-        $routeRow = $this->getRouteByCoordinate($latitude, $longitude, $route_id);
-        if($routeRow){
-            $status = $this->updateStatus($routeRow['id'], $route_id);
-            $routeRow['status']=1;
 
-        }else{
-            $routeRow=[
-                'intersection'=>$intersection,
-                'latitude'=>$latitude,
-                'longitude'=>$longitude,
-                'status'=>1
+        $routeRow = $this->getRouteByCoordinate($latitude, $longitude, $route_id);
+        if ($routeRow) {
+            $status = $this->updateStatus($routeRow['id'], $route_id);
+            $routeRow['status'] = 1;
+
+        } else {
+            $routeRow = [
+                'intersection' => $intersection,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'status' => 1
             ];
         }
-        
-       
+
+
         $this->db->where('route_id', $route_id);
         $locationQuery = $this->db->get('location');
         if ($locationQuery->num_rows() == 1) {
-          
+
             //update location table for single record.
             $locationRow = $locationQuery->row_array();
             $this->db->where('id', $locationRow['id']);
             $this->db->where('route_id', $route_id);
             $this->db->update('location', $routeRow);
-           return $this->db->affected_rows();
+            return $this->db->affected_rows();
         } else {
 
             $this->db->insert('location', $routeRow);
@@ -97,37 +106,37 @@ public function getConfig($parade_id=''){
 
     }
 
-    public function updateTailLocationTable($latitude, $longitude, $route_id,$intersection='')
+    public function updateTailLocationTable($latitude, $longitude, $route_id, $intersection = '')
     {
-       
+
         $routeRow = $this->getRouteByCoordinate($latitude, $longitude, $route_id);
-        if(!$routeRow){
-            $routeRow=[
-                'intersection'=>$intersection,
-                'latitude'=>$latitude,
-                'longitude'=>$longitude,
-                
+        if (!$routeRow) {
+            $routeRow = [
+                'intersection' => $intersection,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+
             ];
         }
-       
+
+        $this->db->where('route_id', $route_id);
+        $locationQuery = $this->db->get('tail_location');
+        if ($locationQuery->num_rows() == 1) {
+            //update location table for single record.
+            $locationRow = $locationQuery->row_array();
+            $this->db->where('id', $locationRow['id']);
             $this->db->where('route_id', $route_id);
-            $locationQuery = $this->db->get('tail_location');
-            if ($locationQuery->num_rows() == 1) {
-                //update location table for single record.
-                $locationRow = $locationQuery->row_array();
-                $this->db->where('id', $locationRow['id']);
-                $this->db->where('route_id', $route_id);
-                $this->db->update('tail_location', $routeRow);
-                return $this->db->affected_rows();
+            $this->db->update('tail_location', $routeRow);
+            return $this->db->affected_rows();
 
-            } else {
+        } else {
 
-                $this->db->insert('tail_location', $routeRow);
-                return $this->db->insert_id();
-            }
-        
+            $this->db->insert('tail_location', $routeRow);
+            return $this->db->insert_id();
+        }
+
     }
-    
+
     public function updateStatus($id, $route_id)
     {
         $this->db->where('route_id', $route_id);
@@ -139,25 +148,34 @@ public function getConfig($parade_id=''){
 
     }
 
-    public function get_user_by_user($user) {
+    public function get_user_by_user($user)
+    {
         $query = $this->db->get_where('users', ['user' => $user]);
         return $query->row_array();
     }
-    
+
     function passwordVerify($user, $password)
-	{
-       
-        
-		$this->db->where('user', $user);
-		$this->db->where('password', $password);
-		$query = $this->db->get('users');
-        if($query->num_rows() == 1)
-		{ 
-            
-			return true;
-		}
-            
-		
-	}
+    {
+
+
+        $this->db->where('user', $user);
+        $this->db->where('password', $password);
+        $query = $this->db->get('users');
+        if ($query->num_rows() == 1) {
+
+            return true;
+        }
+
+
+    }
+
+
+    function getPoi($parade_id)
+    {
+        $this->db->where('parade_id', $parade_id);
+        $this->db->select('id, name, lat, lon, category, image');
+        $Q = $this->db->get('pointof_interest');
+        return $Q->result_array();
+    }
 }
 

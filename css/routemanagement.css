@@ -178,3 +178,16 @@ li {
 }
  
 
+.select-list {
+    &, &::picker(select) {
+      appearance: base-select;    
+    }
+    width: 500px;
+   
+  }
+  .selectlist{
+     width: 50%; /* Or a fixed pixel width */
+        margin-left: auto;
+        margin-right: auto;
+  }
+  

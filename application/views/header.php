@@ -50,6 +50,8 @@
           <li><?php print anchor('routemanagement/', 'Copy route'); ?></li>
           <li><?php print anchor('routemanagement/manage', 'Manage route'); ?></li>
 
+          <li><?php print anchor('pointofinterest/', 'Interest point'); ?></li>
+
         <?php if ($this->session->userdata('type') != '') { ?>
             <li><?php print anchor('users/logout', 'Log out'); ?></li>
         <?php } ?>
