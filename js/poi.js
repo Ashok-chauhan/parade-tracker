@@ -1,25 +1,29 @@
 // Restore previous value on load
 window.addEventListener("DOMContentLoaded", () => {
-	const savedValue = sessionStorage.getItem("selectedOption");
-	if (savedValue) {
-		document.getElementById("parade_id").value = savedValue;
-		displayPoi(savedValue);
+	try {
+		const savedValue = sessionStorage.getItem("selectedOption");
+		if (savedValue) {
+			document.getElementById("parade_id").value = savedValue;
+			displayPoi(savedValue);
+		}
+	} catch (error) {
+		console.log(error);
 	}
 });
 
 // Save value on change
 document.getElementById("parade_id").addEventListener("change", function () {
-	sessionStorage.setItem("selectedOption", this.value);
-	//displayPoi(this.value);
+	try {
+		sessionStorage.setItem("selectedOption", this.value);
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 const poiForm = document.getElementById("poiForm");
 
 poiForm.addEventListener("submit", function (event) {
-	// Prevent the default form submission (which would cause a page reload)
 	event.preventDefault();
-
-	// Perform form validation here
 	if (validateForm()) {
 		// If validation passes, you can either:
 		// a) Submit the form programmatically (if you don't need the 'submit' event to fire again)
@@ -34,26 +38,18 @@ poiForm.addEventListener("submit", function (event) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log("Success:", data);
-
 				// Clear form fields
 				poiForm.reset();
+				document.querySelector("#submit").textContent = "Create Point";
+
 				const savedValue = sessionStorage.getItem("selectedOption");
 				if (savedValue) {
 					document.getElementById("parade_id").value = savedValue;
 					displayPoi(savedValue);
 				}
-				//displayPoi();
-				// Refresh page after 2 seconds (adjust time if needed)
-				// setTimeout(() => {
-				// 	window.location.reload();
-				// }, 2000); // 2000ms = 2 seconds
-
-				// Handle successful submission (e.g., display a success message)
 			})
 			.catch((error) => {
 				console.error("Error:", error);
-				// Handle errors
 			});
 		hideLoading();
 	} else {
@@ -63,7 +59,6 @@ poiForm.addEventListener("submit", function (event) {
 });
 
 function validateForm() {
-	// Implement your form validation logic here
 	// Return true if valid, false otherwise
 	const toRoute = document.querySelector("#parade_id").value;
 	if (isNaN(toRoute)) {
@@ -74,55 +69,60 @@ function validateForm() {
 }
 
 const displayPoi = async (parade_id = "") => {
-	let poiContainer = document.querySelector("#poiContainer");
-	const form = document.getElementById("poiForm");
-	const formData = new FormData(form);
-	if (parade_id) {
-		formData.append("parade_id", parade_id);
-	}
-	displayLoading();
-	url = "/pointofinterest/displayPoi/";
-	const rawResponse = await fetch(url, {
-		method: "POST",
-		body: formData,
-	});
-	const content = await rawResponse.json();
-	//console.log(content);
-	hideLoading();
-	sessionStorage.setItem("route_id", formData.get("route_id"));
+	try {
+		let poiContainer = document.querySelector("#poiContainer");
+		const form = document.getElementById("poiForm");
+		const formData = new FormData(form);
+		if (parade_id) {
+			formData.append("parade_id", parade_id);
+		}
+		displayLoading();
+		url = "/pointofinterest/displayPoi/";
+		const rawResponse = await fetch(url, {
+			method: "POST",
+			body: formData,
+		});
+		const content = await rawResponse.json();
+		hideLoading();
+		sessionStorage.setItem("route_id", formData.get("route_id"));
 
-	poiContainer.innerHTML = "";
-	content.forEach((element) => {
-		poiContainer.innerHTML += `<tr  class="route-tr"><td class="route-name">  <strong>${element.name} </strong></td>   <td class="route-delete"><button class="btn-delete" onClick="deletePoint(${element.id});">delete</button></td> <td class="route-edit" onClick="editPoi(${element.id});"><button class="btn-edit">Edit</button></td></tr>`;
-	});
-	//	initializeDragAndDrop();
+		poiContainer.innerHTML = "";
+		content.forEach((element) => {
+			poiContainer.innerHTML += `<tr  class="route-tr"><td class="route-name">  <strong>${element.name} </strong></td>   <td class="route-delete"><button class="btn-delete" onClick="deletePoint(${element.id});">delete</button></td> <td class="route-edit" onClick="editPoi(${element.id});"><button class="btn-edit">Edit</button></td></tr>`;
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 // EDIT POINT OF INTEREST.
 
 const editPoi = async (id) => {
-	const formData = new FormData();
-	formData.append("id", id);
-	url = "/pointofinterest/getPointById/";
-	const rawResponse = await fetch(url, {
-		method: "POST",
-		body: formData,
-	});
-	const content = await rawResponse.json();
+	try {
+		const formData = new FormData();
+		document.querySelector("#submit").textContent = "Update Point";
+		formData.append("id", id);
+		url = "/pointofinterest/getPointById/";
+		const rawResponse = await fetch(url, {
+			method: "POST",
+			body: formData,
+		});
+		const content = await rawResponse.json();
 
-	if (content) {
-		console.log(content);
-		// populate form data
+		if (content) {
+			// populate form data
+			document.querySelector("#name").value = content.name;
+			document.querySelector("#name").focus();
 
-		document.querySelector("#name").value = content.name;
-		document.querySelector("#name").focus();
+			document.querySelector("#lat").value = content.lat;
+			document.querySelector("#lon").value = content.lon;
+			document.querySelector("#category").value = content.category;
+			document.querySelector("#image").value = content.image;
 
-		document.querySelector("#lat").value = content.lat;
-		document.querySelector("#lon").value = content.lon;
-		document.querySelector("#category").value = content.category;
-		document.querySelector("#image").value = content.image;
-
-		document.querySelector("#pointid").value = content.id;
+			document.querySelector("#pointid").value = content.id;
+		}
+	} catch (error) {
+		console.log(error);
 	}
 };
 

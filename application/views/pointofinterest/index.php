@@ -21,11 +21,11 @@
             <input type="text" name="lat" id="lat" placeholder="Latitude" required>
             <input type="text" name="lon" id="lon" placeholder="Longitude" required>
             <input type="text" name="category" id="category" placeholder="Category" required>
-            <input type="text" name="image" id="image" placeholder="Image url" required>
+            <textarea name="image" id="image" placeholder="Image url" cols="82"></textarea>
             <input type="hidden" name="pointid" id="pointid">
 
 
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit">Create Point</button>
         </div>
 
 

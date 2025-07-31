@@ -172,8 +172,6 @@ class Parade extends CI_Controller
                 'start_time' => $unixTime,
                 'image' => basename($imagefile),
                 'route_id' => $this->input->post('route_id'),
-                'lat' => $this->input->post('lat'),
-                'lon' => $this->input->post('lon'),
                 'floats' => $this->input->post('floats'),
                 'banner' => $this->input->post('banner'),
                 'sponsor_ad' => $this->input->post('sponsor_ad')

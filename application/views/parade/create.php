@@ -62,17 +62,6 @@
 			echo '</tr>';
 
 			echo '<tr>';
-			echo '<td>' . form_label('Start latitude', 'latitude') . '</td>';
-			echo '<td>' . form_input('lat', '', 'required') . '</td>';
-			echo '</tr>';
-
-			echo '<tr>';
-			echo '<td>' . form_label('Start longitude', 'longitude') . '</td>';
-			echo '<td>' . form_input('lon', '', 'required') . '</td>';
-			echo '</tr>';
-
-
-			echo '<tr>';
 			echo '<td>' . form_label('Sponsor ad', 'Sponsor ad') . '</td>';
 			echo '<td>' . form_input('sponsor_ad', '', ) . '</td>';
 			echo '</tr>';

@@ -48,7 +48,7 @@ class Pointofinterest extends CI_Controller
                 'lat' => $this->input->post('lat'),
                 'lon' => $this->input->post('lon'),
                 'category' => $this->input->post('category'),
-                'image' => $this->input->post('image')
+                'image' => trim($this->input->post('image'))
             );
             $response = $this->Pointofinterest_model->addPoint($data);
             echo json_encode($response);
@@ -61,7 +61,7 @@ class Pointofinterest extends CI_Controller
                 'lat' => $this->input->post('lat'),
                 'lon' => $this->input->post('lon'),
                 'category' => $this->input->post('category'),
-                'image' => $this->input->post('image')
+                'image' => trim($this->input->post('image'))
             );
 
             $response = $this->Pointofinterest_model->updatePointbyId($this->input->post('pointid'), $dataToupdate);

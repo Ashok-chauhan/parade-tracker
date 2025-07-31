@@ -68,8 +68,9 @@ class Api extends CI_Controller
                 $parade[$key]['floats'] = (int) $value['floats'];
                 $parade[$key]['banner_ad'] = $value['banner'];
                 $parade[$key]['sponsor_ad'] = $value['sponsor_ad'];
-                $parade[$key]['lat'] = $value['lat'];
-                $parade[$key]['lon'] = $value['lon'];
+                $firstCoordinate = $this->Api_model->getFirstCoordinate($value['route_id']);
+                $parade[$key]['lat'] = $firstCoordinate['latitude'];
+                $parade[$key]['lon'] = $firstCoordinate['longitude'];
                 $points = $this->Api_model->getPoi($value['id']);
                 foreach ($points as $point) {
                     $parade[$key]['points_of_interest'][] = $point;

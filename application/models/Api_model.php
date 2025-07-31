@@ -154,7 +154,7 @@ class Api_model extends CI_Model
         return $query->row_array();
     }
 
-    function passwordVerify($user, $password)
+    public function passwordVerify($user, $password)
     {
 
 
@@ -170,12 +170,23 @@ class Api_model extends CI_Model
     }
 
 
-    function getPoi($parade_id)
+    public function getPoi($parade_id)
     {
         $this->db->where('parade_id', $parade_id);
         $this->db->select('id, name, lat, lon, category, image');
         $Q = $this->db->get('pointof_interest');
         return $Q->result_array();
+    }
+
+    public function getFirstCoordinate($route_id)
+    {
+        $this->db->where('route_id', $route_id);
+        $this->db->select('latitude, longitude');
+        $this->db->order_by('route_order', 'ASC');
+        $this->db->limit(1);
+        $q = $this->db->get('Routes');
+        return $q->row_array();
+
     }
 }
 

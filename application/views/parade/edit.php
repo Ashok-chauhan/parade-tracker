@@ -72,16 +72,6 @@
             echo '</tr>';
 
             echo '<tr>';
-            echo '<td>' . form_label('Start latitude', 'latitude') . '</td>';
-            echo '<td>' . form_input('lat', $row['lat'], 'required') . '</td>';
-            echo '</tr>';
-
-            echo '<tr>';
-            echo '<td>' . form_label('Start longitude', 'longitude') . '</td>';
-            echo '<td>' . form_input('lon', $row['lon'], 'required') . '</td>';
-            echo '</tr>';
-
-            echo '<tr>';
             echo '<td>' . form_label('No. of floats', 'No. of floats') . '</td>';
             echo '<td>' . form_input('floats', $row['floats']) . '</td>';
             echo '</tr>';
